@@ -1,7 +1,7 @@
 import React from "react";
 
 import Paper from "@mui/material/Paper";
-import RadioWrapper from "./RadioWrapper";
+import RadioWrapper from "../RadioWrapper";
 import {
   Box,
   FormControlLabel,
@@ -9,19 +9,10 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import { useAppStore } from "../stores/appStore";
+import { useAppStore } from "../../stores/appStore";
 import { useShallow } from "zustand/shallow";
 import ContributeIndividuallyBlock from "./ContributeIndividuallyBlock";
-function createData(key: string, name: string, month: number) {
-  return { key, name, month };
-}
-
-const rows = [
-  createData("a", "- ordentliches Mitglied", 10),
-  createData("b", "- Förder Mitgliedschaft: 1. Natürliche Personen", 10),
-  createData("c", "- Förder Mitgliedschaft: 2. Juristische Personen", 15),
-  createData("d", "- Individuelle Förderung:", 0),
-];
+import { ContributeProps } from "./ContributeProps";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -35,11 +26,8 @@ const Item = styled(Paper)(({ theme }) => ({
   }),
 }));
 
-interface ContributeMobileProps {
-  className: string;
-}
 
-function ContributeMobile(props: Readonly<ContributeMobileProps>) {
+function ContributeMobile(props: Readonly<ContributeProps>) {
   const [
     contributeValue,
     setContributeValue,
@@ -65,7 +53,7 @@ function ContributeMobile(props: Readonly<ContributeMobileProps>) {
 
   return (
     <Box sx={{ flexGrow: 1, overflow: "hidden", px: 3 }} className={props.className}>
-      {rows.map((row) => {
+      {props.contributes.map((row) => {
         if (row.key === "d") {
           return (
             <Item key={row.key} sx={{ my: 1, mx: "auto", p: 2, maxWidth: "unset" }}>

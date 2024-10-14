@@ -10,7 +10,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 
-import ContributeTable from "./components/ContributeTable";
+import ContributeTable from "./components/Contribute/ContributeTable";
 import AppBarWrapper from "./components/AppBarWrapper";
 import { PersonalDataList } from "./components/PersonalDataList";
 import { PrintModal } from "./components/PrintModal";
@@ -23,7 +23,8 @@ import VolunteerArea from "./components/VolunteerArea";
 import SepaArea from "./components/SepaArea";
 import AddressArea from "./components/AddressArea";
 import { Print } from "@mui/icons-material";
-import ContributeMobile from "./components/ContributeMobile";
+import ContributeMobile from "./components/Contribute/ContributeMobile";
+import { CONTRIBUTES } from "./const";
 
 
 function App() {
@@ -83,8 +84,8 @@ function App() {
             </p>
           </div>
 
-          <ContributeTable className={`${matches ? "visible" : "hidden"} visible-on-print`} />
-          <ContributeMobile className={`${!matches ? "visible" : "hidden"} no-print`}/>
+          <ContributeTable contributes={CONTRIBUTES} className={`${matches ? "visible" : "hidden"} visible-on-print`} />
+          <ContributeMobile contributes={CONTRIBUTES} className={`${!matches ? "visible" : "hidden"} no-print`}/>
 
           <PersonalDataList />
 
