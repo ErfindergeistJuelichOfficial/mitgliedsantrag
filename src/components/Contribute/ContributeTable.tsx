@@ -6,26 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import RadioWrapper from "./RadioWrapper";
-import { useAppStore } from "../stores/appStore";
+import RadioWrapper from "../RadioWrapper";
+import { useAppStore } from "../../stores/appStore";
 import { useShallow } from "zustand/shallow";
 import ContributeIndividuallyBlock from "./ContributeIndividuallyBlock";
-function createData(key: string, name: string, month: number) {
-  return { key, name, month };
-}
+import { ContributeProps } from "./ContributeProps";
 
-const rows = [
-  createData("a", "Ordentliches Mitglied", 10),
-  createData("b", "Fördermitgliedschaft: Natürliche Personen", 10),
-  createData("c", "Fördermitgliedschaft: Juristische Personen", 15),
-  createData("d", "Individuelle Förderung:", 0),
-];
-
-interface ContributeTableProps {
-  className: string; 
-}
-
-export default function ContributeTable(props: Readonly<ContributeTableProps>) {
+export default function ContributeTable(props: Readonly<ContributeProps>) {
   const [contributeValue, setContributeValue, contributeFundingAmount,setContributeFundingAmount] = useAppStore(
     useShallow((state) => [
       state.contributeValue,
@@ -56,7 +43,7 @@ export default function ContributeTable(props: Readonly<ContributeTableProps>) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => {
+          {props.contributes.map((row) => {
             if (row.key === "d") {
               return (
                 <TableRow

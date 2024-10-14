@@ -1,4 +1,5 @@
 import { AllowedFormKeys } from "./models/AllowedFormKeys";
+import { Contribute } from "./models/Contribute";
 
 export const allowedFormKeys = [
   "Unternehmensname (bei Fördermitgliedschaft)",
@@ -36,6 +37,29 @@ export const ADDRESS_ARRAY = [
   "Erfindergeist Jülich e.V.",
   "Buchenweg 16",
   "52399 Merzenich",
+]
+
+export const CONTRIBUTES: Contribute[] = [
+  {
+    key: "a", 
+    name: "Ordentliches Mitglied",
+    month: 10
+  },
+  {
+    key: "b", 
+    name: "Fördermitgliedschaft: Natürliche Personen",
+    month: 10
+  },
+  {
+    key: "c", 
+    name: "Fördermitgliedschaft: Juristische Personen",
+    month: 15
+  },
+  {
+    key: "d", 
+    name: "Individuelle Förderung:",
+    month: 0
+  }
 ]
 
 export const MAIL_ADDRESS = "vorstand@erfindergeist.org"
