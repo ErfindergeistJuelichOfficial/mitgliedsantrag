@@ -100,7 +100,7 @@ function App() {
               verarbeitet. Mit der Bestätigung der Mitgliedschaft wird eine
               Mitgliedsnummer zugewiesen, welche in den Überweisungen als
               Verwendungszweck angegeben werden muss. Bitte richten Sie einen
-              Dauerauftrag ein oder nutzen Sie das Formular, um ein
+              Dauerauftrag ein oder nutzen Sie das Formular (siehe unten), um ein
               Lastschriftmandat zu erteilen.
             </p>
           </div>
