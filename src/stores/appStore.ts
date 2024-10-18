@@ -68,6 +68,16 @@ export const useAppStore = create<AppState>()(
         }
       });
     },
+    updateSignatureAspectRatio: (key, location) => {
+      set((state) => {
+        const index = state.signatures.findIndex(
+          (signature) => signature.key === key
+        );
+        if (index > -1) {
+          state.signatures[index].aspectRatio = location;
+        }
+      });
+    },
     printModalIsOpen: false,
     togglePrintModalIsOpen: () =>
       set((state) => {

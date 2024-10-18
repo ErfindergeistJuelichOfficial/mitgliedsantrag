@@ -22,6 +22,7 @@ export interface AppState {
   updateSignatureItemDataURL: (key: AllowedSignatureKeys, dataURL: string) => void;
   updateSignatureItemDate: (key: AllowedSignatureKeys, date: string) => void;
   updateSignatureItemLocation: (key: AllowedSignatureKeys, location: string) => void;
+  updateSignatureAspectRatio: (key: AllowedSignatureKeys, aspectRatio: number) => void;
 
   // MODALS
   printModalIsOpen: boolean;

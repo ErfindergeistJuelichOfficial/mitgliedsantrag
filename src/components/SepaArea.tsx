@@ -1,5 +1,5 @@
 import { FormHelperText, Input, FormControl } from "@mui/material";
-import SignatureStack from "./SignatureStack";
+import SignatureButton from "./SignatureFormControl/SignatureFormControl";
 
 function SepaArea() {
   return (
@@ -49,7 +49,7 @@ function SepaArea() {
         </li>
       </ul>
 
-      <SignatureStack signatureKey="sepa" />
+      <SignatureButton signatureKey="sepa" />
     </>
   );
 }

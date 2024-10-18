@@ -12,6 +12,7 @@ export function getInitialSignatureItems(
       dataURL: BLANK_PNG,
       date: dayjs().format("DD.MM.YYYY"),
       location: "",
+      aspectRatio: 1,
     };
   });
 }
