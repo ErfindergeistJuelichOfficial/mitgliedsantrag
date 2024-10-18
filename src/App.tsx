@@ -98,11 +98,11 @@ function App() {
             </p>
             <p>
               Alle Daten werden unter strenger Beachtung der EU-DSGVO,
-              ausschließlich für vereinsinterne Zwecke, vom Vorstand
-              EDV-gestützt verarbeitet. Mit der Bestätigung der Mitgliedschaft
-              wird eine Mitgliedsnummer zugewiesen, welche in den Überweisungen
-              als Verwendungszweck angegeben werden muss. Bitte richten Sie
-              einen Dauerauftrag ein oder nutzen Sie das Formular, um ein
+              ausschließlich für vereinsinterne Zwecke, vom Vorstand EDV-gestützt
+              verarbeitet. Mit der Bestätigung der Mitgliedschaft wird eine
+              Mitgliedsnummer zugewiesen, welche in den Überweisungen als
+              Verwendungszweck angegeben werden muss. Bitte richten Sie einen
+              Dauerauftrag ein oder nutzen Sie das Formular (siehe unten), um ein
               Lastschriftmandat zu erteilen.
             </p>
           </div>
