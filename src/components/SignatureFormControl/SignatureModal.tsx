@@ -1,7 +1,9 @@
 import { Box, Modal } from "@mui/material";
-import { modalBoxStyle } from "../styles/styles";
 import SignaturePad from "./SignaturePad";
-import { AllowedSignatureKeys } from "../models/AllowedSignatureKeys";
+import { AllowedSignatureKeys } from "../../models/AllowedSignatureKeys";
+
+// Styles
+import { modalBoxStyle } from "../../styles/styles";
 
 interface SignatureModalProps {
   open: boolean;
@@ -10,8 +12,6 @@ interface SignatureModalProps {
 }
 
 function SignatureModal(props: Readonly<SignatureModalProps>) {
-
-
   return (
     <Modal
       open={props.open}
@@ -23,7 +23,7 @@ function SignatureModal(props: Readonly<SignatureModalProps>) {
       <Box sx={modalBoxStyle}>
         <h2>Unterschrift</h2>
 
-        <SignaturePad 
+        <SignaturePad
           signatureKey={props.signatureKey}
           onClose={props.onClose}
         />

@@ -1,21 +1,20 @@
-import {
-  FormControl,
-  FormHelperText,
-  Input,
-  Stack,
-} from "@mui/material";
-import { useAppStore } from "../stores/appStore";
-import { useShallow } from "zustand/shallow";
-import { AllowedSignatureKeys } from "../models/AllowedSignatureKeys";
-import { BLANK_PNG } from "../const";
+import { FormControl, FormHelperText, Input, Stack } from "@mui/material";
 import SignatureModal from "./SignatureModal";
+
+// Hooks
+import { useAppStore } from "../../stores/appStore";
+import { useShallow } from "zustand/shallow";
 import { useState } from "react";
 
-interface SignatureStackProps {
+// Constants
+import { AllowedSignatureKeys } from "../../models/AllowedSignatureKeys";
+import { BLANK_PNG } from "../../const";
+
+interface SignatureButtonProps {
   signatureKey: AllowedSignatureKeys;
 }
 
-function SignatureStack(props: Readonly<SignatureStackProps>) {
+function SignatureButton(props: Readonly<SignatureButtonProps>) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const [signatures, updateSignatureItemDate, updateSignatureItemLocation] =
@@ -26,6 +25,10 @@ function SignatureStack(props: Readonly<SignatureStackProps>) {
         state.updateSignatureItemLocation,
       ])
     );
+
+  const currentSignature = signatures.find(
+    (signature) => signature.key === props.signatureKey
+  );
 
   return (
     <>
@@ -85,26 +88,30 @@ function SignatureStack(props: Readonly<SignatureStackProps>) {
         >
           <Input
             id="input-with-icon-adornment"
-            value={
-              signatures.find(
-                (signature) => signature.key === props.signatureKey
-              )?.dataURL === BLANK_PNG
-                ? ""
-                : " "
-            }
-            readOnly
+            sx={{
+              zIndex: 2,
+            }}
+            value={currentSignature?.dataURL === BLANK_PNG ? "" : " "}
           />
           <img
-            width="100%"
-            height="80%"
+            width={
+              currentSignature?.aspectRatio
+                ? 50 * currentSignature.aspectRatio * 2
+                : "100%"
+            }
+            height="50"
             style={{
+              zIndex: 1,
               position: "absolute",
+              alignSelf: "center",
+              top: "-10px",
             }}
             src={
               signatures.find(
                 (signature) => signature.key === props.signatureKey
               )?.dataURL
             }
+            alt="Unterschrift"
           />
 
           <FormHelperText id="standard-weight-helper-text">
@@ -116,4 +123,4 @@ function SignatureStack(props: Readonly<SignatureStackProps>) {
   );
 }
 
-export default SignatureStack;
+export default SignatureButton;

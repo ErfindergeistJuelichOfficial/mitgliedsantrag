@@ -1,5 +1,3 @@
-import "./App.css";
-
 import {
   Box,
   Button,
@@ -10,32 +8,32 @@ import {
   useMediaQuery,
 } from "@mui/material";
 
+import { Print } from "@mui/icons-material";
 import ContributeTable from "./components/Contribute/ContributeTable";
 import AppBarWrapper from "./components/AppBarWrapper";
 import { PersonalDataList } from "./components/PersonalDataList";
 import { PrintModal } from "./components/PrintModal";
-import { useAppStore } from "./stores/appStore";
-import { useShallow } from "zustand/shallow";
 import { BankAccountList } from "./components/BankAccountList";
 import { HelpModal } from "./components/HelpModal";
-import SignatureStack from "./components/SignatureStack";
+import SignatureButton from "./components/SignatureFormControl/SignatureFormControl";
 import VolunteerArea from "./components/VolunteerArea";
 import SepaArea from "./components/SepaArea";
 import AddressArea from "./components/AddressArea";
-import { Print } from "@mui/icons-material";
 import ContributeMobile from "./components/Contribute/ContributeMobile";
+
+// Hooks
+import { useAppStore } from "./stores/appStore";
+import { useShallow } from "zustand/shallow";
+
+// Constants
 import { CONTRIBUTES } from "./const";
 
-
 function App() {
-  const matches = useMediaQuery('(min-width:800px)');
-  
-  const [togglePrintModalIsOpen] =
-    useAppStore(
-      useShallow((state) => [
-        state.togglePrintModalIsOpen
-      ])
-    );
+  const matches = useMediaQuery("(min-width:800px)");
+
+  const [togglePrintModalIsOpen] = useAppStore(
+    useShallow((state) => [state.togglePrintModalIsOpen])
+  );
 
   const primary: PaletteColorOptions = {
     main: "#159989",
@@ -55,9 +53,8 @@ function App() {
     palette: {
       primary: primary,
       secondary: secondary,
-    }
+    },
   });
-
 
   return (
     <ThemeProvider theme={theme}>
@@ -68,9 +65,8 @@ function App() {
         <HelpModal />
 
         <Box component="main">
-          <div className="no-print" style={{height: "30px"}}>
+          <div className="no-print" style={{ height: "30px" }}>
             {/* simples spacer div */}
-
           </div>
           <h1>Antrag auf Mitgliedschaft </h1>
 
@@ -79,13 +75,19 @@ function App() {
               Hiermit beantrage ich die Mitgliedschaft im Erfindergeist Jülich
               e.V. zum nächstmöglichen Zeitpunkt. Ich habe die Vereinssatzung
               gelesen und bin mit deren Einhaltung einverstanden. Mir ist
-              bewusst, dass mit der Annahme des Antrages eine Einladung zu den vereinsinternen
-              Kommunikations- & Co-Working-Apps erfolgt.
+              bewusst, dass mit der Annahme des Antrages eine Einladung zu den
+              vereinsinternen Kommunikations- & Co-Working-Apps erfolgt.
             </p>
           </div>
 
-          <ContributeTable contributes={CONTRIBUTES} className={`${matches ? "visible" : "hidden"} visible-on-print`} />
-          <ContributeMobile contributes={CONTRIBUTES} className={`${!matches ? "visible" : "hidden"} no-print`}/>
+          <ContributeTable
+            contributes={CONTRIBUTES}
+            className={`${matches ? "visible" : "hidden"} visible-on-print`}
+          />
+          <ContributeMobile
+            contributes={CONTRIBUTES}
+            className={`${!matches ? "visible" : "hidden"} no-print`}
+          />
 
           <PersonalDataList />
 
@@ -96,19 +98,19 @@ function App() {
             </p>
             <p>
               Alle Daten werden unter strenger Beachtung der EU-DSGVO,
-              ausschließlich für vereinsinterne Zwecke, vom Vorstand EDV-gestützt
-              verarbeitet. Mit der Bestätigung der Mitgliedschaft wird eine
-              Mitgliedsnummer zugewiesen, welche in den Überweisungen als
-              Verwendungszweck angegeben werden muss. Bitte richten Sie einen
-              Dauerauftrag ein oder nutzen Sie das Formular, um ein
+              ausschließlich für vereinsinterne Zwecke, vom Vorstand
+              EDV-gestützt verarbeitet. Mit der Bestätigung der Mitgliedschaft
+              wird eine Mitgliedsnummer zugewiesen, welche in den Überweisungen
+              als Verwendungszweck angegeben werden muss. Bitte richten Sie
+              einen Dauerauftrag ein oder nutzen Sie das Formular, um ein
               Lastschriftmandat zu erteilen.
             </p>
           </div>
 
           <BankAccountList />
 
-          <SignatureStack signatureKey="form" />
-        
+          <SignatureButton signatureKey="form" />
+
           {/* NEW SITE */}
           <div className="print-per-page" />
           <VolunteerArea />
