@@ -39,6 +39,7 @@ h1, h2 {
 
 .signature-canvas  {
   border: 1px solid black;
+  z-index: 2;
 }
 
 .print-per-page {
@@ -69,10 +70,6 @@ h1, h2 {
 
   ul {
     margin: 0;
-  }
-
-  input, textarea {
-    padding: 0 !important;
   }
 
   .no-print {

@@ -5,4 +5,5 @@ export interface SignatureItem {
   dataURL: string;
   date: string;
   location: string;
+  aspectRatio: number;
 }
