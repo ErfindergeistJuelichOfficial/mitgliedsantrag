@@ -59,78 +59,83 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "block" }}>
-        <CssBaseline />
-        <AppBarWrapper />
-        <PrintModal />
-        <HelpModal />
+        <Box component="header" className="header no-print">
+          <CssBaseline />
+          <AppBarWrapper />
+          <PrintModal />
+          <HelpModal />
+        </Box>
 
         <Box component="main">
-          <div className="no-print" style={{ height: "30px" }}>
+          <Box className="no-print" sx={{ height: "30px" }}>
             {/* simples spacer div */}
-          </div>
-          <h1>Antrag auf Mitgliedschaft </h1>
+          </Box>
 
-          <div>
-            <p>
-              Hiermit beantrage ich die Mitgliedschaft im Erfindergeist Jülich
-              e.V. zum nächstmöglichen Zeitpunkt. Ich habe die Vereinssatzung
-              gelesen und bin mit deren Einhaltung einverstanden. Mir ist
-              bewusst, dass mit der Annahme des Antrages eine Einladung zu den
-              vereinsinternen Kommunikations- & Co-Working-Apps erfolgt.
-            </p>
-          </div>
+          <Box component="article">
+            <h1>Antrag auf Mitgliedschaft </h1>
 
-          <ContributeTable
-            contributes={CONTRIBUTES}
-            className={`${matches ? "visible" : "hidden"} visible-on-print`}
-          />
-          <ContributeMobile
-            contributes={CONTRIBUTES}
-            className={`${!matches ? "visible" : "hidden"} no-print`}
-          />
+            <div>
+              <p>
+                Hiermit beantrage ich die Mitgliedschaft im Erfindergeist Jülich
+                e.V. zum nächstmöglichen Zeitpunkt. Ich habe die Vereinssatzung
+                gelesen und bin mit deren Einhaltung einverstanden. Mir ist
+                bewusst, dass mit der Annahme des Antrages eine Einladung zu den
+                vereinsinternen Kommunikations- & Co-Working-Apps erfolgt.
+              </p>
+            </div>
 
-          <PersonalDataList />
+            <ContributeTable
+              contributes={CONTRIBUTES}
+              className={`${matches ? "visible" : "hidden"} visible-on-print`}
+            />
+            <ContributeMobile
+              contributes={CONTRIBUTES}
+              className={`${!matches ? "visible" : "hidden"} no-print`}
+            />
 
-          <div>
-            <p>
-              Personen unter 16 Jahren sollten sich mit einem
-              Erziehungsberechtigten anmelden, siehe Vereinssatzung.
-            </p>
-            <p>
-              Alle Daten werden unter strenger Beachtung der EU-DSGVO,
-              ausschließlich für vereinsinterne Zwecke, vom Vorstand EDV-gestützt
-              verarbeitet. Mit der Bestätigung der Mitgliedschaft wird eine
-              Mitgliedsnummer zugewiesen, welche in den Überweisungen als
-              Verwendungszweck angegeben werden muss. Bitte richten Sie einen
-              Dauerauftrag ein oder nutzen Sie das Formular (siehe unten), um ein
-              Lastschriftmandat zu erteilen.
-            </p>
-          </div>
+            <PersonalDataList />
 
-          <BankAccountList />
+            <div>
+              <p>
+                Personen unter 16 Jahren sollten sich mit einem
+                Erziehungsberechtigten anmelden, siehe Vereinssatzung.
+              </p>
+              <p>
+                Alle Daten werden unter strenger Beachtung der EU-DSGVO,
+                ausschließlich für vereinsinterne Zwecke, vom Vorstand
+                EDV-gestützt verarbeitet. Mit der Bestätigung der Mitgliedschaft
+                wird eine Mitgliedsnummer zugewiesen, welche in den
+                Überweisungen als Verwendungszweck angegeben werden muss. Bitte
+                richten Sie einen Dauerauftrag ein oder nutzen Sie das Formular
+                (siehe unten), um ein Lastschriftmandat zu erteilen.
+              </p>
+            </div>
 
-          <SignatureButton signatureKey="form" />
+            <BankAccountList />
 
-          {/* NEW SITE */}
-          <div className="print-per-page" />
-          <VolunteerArea />
-          <AddressArea />
+            <SignatureButton signatureKey="form" />
+          </Box>
 
-          {/* NEW SITE */}
-          <div className="print-per-page" />
-          <SepaArea />
-          <AddressArea />
+          <Box component="article" className="print-per-page">
+            <VolunteerArea />
+            <AddressArea />
+          </Box>
 
-          <div className="no-print">
-            <Button
-              variant="contained"
-              onClick={() => togglePrintModalIsOpen()}
-              endIcon={<Print />}
-              fullWidth
-            >
-              Drucken
-            </Button>
-          </div>
+          <Box component="article" className="print-per-page">
+            <SepaArea />
+            <AddressArea />
+          </Box>
+        </Box>
+
+        <Box component="footer" className="footer no-print">
+          <Button
+            variant="contained"
+            onClick={() => togglePrintModalIsOpen()}
+            endIcon={<Print />}
+            fullWidth
+          >
+            Drucken
+          </Button>
         </Box>
       </Box>
     </ThemeProvider>
