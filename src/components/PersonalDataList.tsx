@@ -25,7 +25,10 @@ export function PersonalDataList() {
                 }
                 multiline
               />
-              <FormHelperText id="standard-weight-helper-text" required={formItem.required}>
+              <FormHelperText
+                id="standard-weight-helper-text"
+                required={formItem.required}
+              >
                 {formItem.key}
               </FormHelperText>
             </FormControl>
