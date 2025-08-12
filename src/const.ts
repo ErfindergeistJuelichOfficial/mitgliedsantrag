@@ -32,8 +32,8 @@ export const BANK_ACCOUNT: IBankAccount = {
 
 export const ADDRESS_ARRAY = [
   "Erfindergeist Jülich e.V.",
-  "Buchenweg 16",
-  "52399 Merzenich",
+  "Bauhofstraße 18",
+  "52428 Jülich"
 ];
 
 export const CONTRIBUTES: Contribute[] = [
