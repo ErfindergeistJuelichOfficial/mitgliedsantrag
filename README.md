@@ -11,9 +11,13 @@ Currently, two official plugins are available:
 
 - node: 20+
 
-## Dev
+## Dev local
 
 - `npm run dev`
+
+### Dev with compose
+
+- `podman compose up`
 
 ## Prod
 
