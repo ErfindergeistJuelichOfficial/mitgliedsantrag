@@ -1,6 +1,6 @@
 services:
   app:
-    image: node:20
+    image: node:22
     container_name: mitgliedsantrag_app
     working_dir: /usr/src/app
     volumes:

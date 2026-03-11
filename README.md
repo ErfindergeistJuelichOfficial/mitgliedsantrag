@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 ## Requirements
 
-- node: 20+
+- node: 22+
 
 ## Dev local
 
