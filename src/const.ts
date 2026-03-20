@@ -40,12 +40,12 @@ export const CONTRIBUTES: Contribute[] = [
   {
     key: "a",
     name: "Ordentliches Mitglied",
-    month: 15,
+    month: 10,
   },
   {
     key: "b",
     name: "Fördermitgliedschaft: Natürliche Personen",
-    month: 15,
+    month: 10,
   },
   {
     key: "c",
