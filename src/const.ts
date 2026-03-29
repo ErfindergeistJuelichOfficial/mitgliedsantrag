@@ -1,6 +1,6 @@
-import { AllowedFormKeys } from "./models/AllowedFormKeys";
-import { Contribute } from "./models/Contribute";
-import { IBankAccount } from "./models/IBankAccount";
+import type { AllowedFormKeys } from "./models/AllowedFormKeys";
+import type { Contribute } from "./models/Contribute";
+import type { IBankAccount } from "./models/IBankAccount";
 
 export const allowedFormKeys = [
   "Unternehmensname (bei Fördermitgliedschaft)",

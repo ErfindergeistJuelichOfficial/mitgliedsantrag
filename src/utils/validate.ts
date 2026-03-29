@@ -1,4 +1,4 @@
-import { FormItem } from "../models/FormItem";
+import type { FormItem } from "../models/FormItem";
 
 interface Data {
   formItems: FormItem[]

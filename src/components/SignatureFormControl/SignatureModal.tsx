@@ -1,6 +1,6 @@
 import { Box, Modal } from "@mui/material";
 import SignaturePad from "./SignaturePad";
-import { AllowedSignatureKeys } from "../../models/AllowedSignatureKeys";
+import type { AllowedSignatureKeys } from "../../models/AllowedSignatureKeys";
 
 // Styles
 import { modalBoxStyle } from "../../styles/styles";

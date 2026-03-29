@@ -1,4 +1,4 @@
-import { Contribute } from "../../models/Contribute";
+import type { Contribute } from "../../models/Contribute";
 
 export interface ContributeProps {
   contributes: Contribute[];
