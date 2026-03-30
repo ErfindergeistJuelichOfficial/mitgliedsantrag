@@ -1,10 +1,12 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { getInitialFormItems } from "../utils/getInitialFormItems";
-import { AppState } from "../models/appState";
+import type { AppState } from "../models/appState";
 import { getInitialSignatureItems } from "../utils/getInitialSignatureItems";
 import { allowedFormKeys, requiredFormKeys } from "../const";
-import { AllowedFormKeys } from "../models/AllowedFormKeys";
+import type { AllowedFormKeys } from "../models/AllowedFormKeys";
+import type { SignatureItem } from "../models/SignatureItem";
+import type { FormItem } from "../models/FormItem";
 
 export const useAppStore = create<AppState>()(
   immer((set) => ({
@@ -20,7 +22,7 @@ export const useAppStore = create<AppState>()(
     updateFormItemValue: (key, value) => {
       set((state) => {
         const index = state.formItems.findIndex(
-          (formItem) => formItem.key === key
+          (formItem: FormItem) => formItem.key === key
         );
         if (index > -1) {
           state.formItems[index].value = value;
@@ -30,7 +32,7 @@ export const useAppStore = create<AppState>()(
     toggleFormItemRequired: (key) => {
       set((state) => {
         const index = state.formItems.findIndex(
-          (formItem) => formItem.key === key
+          (formItem: FormItem) => formItem.key === key
         );
         if (index > -1) {
           state.formItems[index].required = !state.formItems[index].required;
@@ -41,7 +43,7 @@ export const useAppStore = create<AppState>()(
     updateSignatureItemDataURL: (key, dataURL) => {
       set((state) => {
         const index = state.signatures.findIndex(
-          (signature) => signature.key === key
+          (signature: SignatureItem) => signature.key === key
         );
         if (index > -1) {
           state.signatures[index].dataURL = dataURL;
@@ -51,7 +53,7 @@ export const useAppStore = create<AppState>()(
     updateSignatureItemDate: (key, date) => {
       set((state) => {
         const index = state.signatures.findIndex(
-          (signature) => signature.key === key
+          (signature: SignatureItem) => signature.key === key
         );
         if (index > -1) {
           state.signatures[index].date = date;
@@ -61,7 +63,7 @@ export const useAppStore = create<AppState>()(
     updateSignatureItemLocation: (key, location) => {
       set((state) => {
         const index = state.signatures.findIndex(
-          (signature) => signature.key === key
+          (signature: SignatureItem) => signature.key === key
         );
         if (index > -1) {
           state.signatures[index].location = location;
@@ -71,7 +73,7 @@ export const useAppStore = create<AppState>()(
     updateSignatureAspectRatio: (key, location) => {
       set((state) => {
         const index = state.signatures.findIndex(
-          (signature) => signature.key === key
+          (signature: SignatureItem) => signature.key === key
         );
         if (index > -1) {
           state.signatures[index].aspectRatio = location;

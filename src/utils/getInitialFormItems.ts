@@ -1,5 +1,5 @@
-import { AllowedFormKeys } from "../models/AllowedFormKeys";
-import { FormItem } from "../models/FormItem";
+import type { AllowedFormKeys } from "../models/AllowedFormKeys";
+import type { FormItem } from "../models/FormItem";
 
 export function getInitialFormItems(
   allowedFormKeys: AllowedFormKeys[],

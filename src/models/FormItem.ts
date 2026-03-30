@@ -1,4 +1,4 @@
-import { AllowedFormKeys } from "./AllowedFormKeys";
+import type { AllowedFormKeys } from "./AllowedFormKeys";
 
 export interface FormItem {
   key: AllowedFormKeys;
