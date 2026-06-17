@@ -19,10 +19,13 @@ jobs:
       with:
         node-version: '22'
       
-    - name: 🔨 Build Project
+    - name: 🧪 Run Tests
       run: |
         npm install
-        npm run build
+        npm test -- --run
+
+    - name: 🔨 Build Project
+      run: npm run build
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
