@@ -10,7 +10,7 @@ import RadioWrapper from "../RadioWrapper";
 import { useAppStore } from "../../stores/appStore";
 import { useShallow } from "zustand/shallow";
 import ContributeIndividuallyBlock from "./ContributeIndividuallyBlock";
-import { ContributeProps } from "./ContributeProps";
+import type { ContributeProps } from "./ContributeProps";
 
 export default function ContributeTable(props: Readonly<ContributeProps>) {
   const [contributeValue, setContributeValue, contributeFundingAmount,setContributeFundingAmount] = useAppStore(

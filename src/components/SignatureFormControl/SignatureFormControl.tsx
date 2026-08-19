@@ -7,7 +7,7 @@ import { useShallow } from "zustand/shallow";
 import { useState } from "react";
 
 // Constants
-import { AllowedSignatureKeys } from "../../models/AllowedSignatureKeys";
+import type { AllowedSignatureKeys } from "../../models/AllowedSignatureKeys";
 import { BLANK_PNG } from "../../const";
 
 interface SignatureButtonProps {

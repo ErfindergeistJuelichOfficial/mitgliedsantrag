@@ -3,7 +3,7 @@ import {
   Button,
   createTheme,
   CssBaseline,
-  PaletteColorOptions,
+  type PaletteColorOptions,
   ThemeProvider,
   useMediaQuery,
 } from "@mui/material";

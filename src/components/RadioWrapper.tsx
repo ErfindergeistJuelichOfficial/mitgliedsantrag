@@ -1,4 +1,4 @@
-import { Radio, RadioProps } from "@mui/material";
+import { Radio, type RadioProps } from "@mui/material";
 
 interface IRadioWrapperProps extends RadioProps {
   selectedValue: string;

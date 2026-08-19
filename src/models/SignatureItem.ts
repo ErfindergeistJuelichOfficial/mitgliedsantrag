@@ -1,4 +1,4 @@
-import { AllowedSignatureKeys } from "./AllowedSignatureKeys";
+import type { AllowedSignatureKeys } from "./AllowedSignatureKeys";
 
 export interface SignatureItem {
   key: AllowedSignatureKeys;

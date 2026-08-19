@@ -5,11 +5,11 @@ import SignatureCanvas from "react-signature-canvas";
 import { useLayoutEffect, useRef } from "react";
 import { useAppStore } from "../../stores/appStore";
 import { useShallow } from "zustand/shallow";
-import { useResizeDetector } from "react-resize-detector";
+import { useResizeObserver } from 'usehooks-ts'
 
 // Constants
 import { BLANK_PNG } from "../../const";
-import { AllowedSignatureKeys } from "../../models/AllowedSignatureKeys";
+import type { AllowedSignatureKeys } from "../../models/AllowedSignatureKeys";
 
 interface SignaturePadProps {
   signatureKey: AllowedSignatureKeys;
@@ -18,11 +18,17 @@ interface SignaturePadProps {
 
 function SignaturePad(props: Readonly<SignaturePadProps>) {
   const signatureCanvasRef = useRef<SignatureCanvas>(null);
-  const signatureCanvasWrapperRef = useRef<HTMLDivElement>(null);
+  const signatureCanvasWrapperRef = useRef<HTMLDivElement>(null!);
 
-  const { width } = useResizeDetector({
-    targetRef: signatureCanvasWrapperRef,
-  });
+  
+  const { width = 0 } = useResizeObserver({
+    ref: signatureCanvasWrapperRef,
+    box: 'border-box',
+  })
+
+  // const { width } = useResizeDetector({
+  //   targetRef: signatureCanvasWrapperRef,
+  // });
 
   const [signatures, updateSignatureItemDataURL, updateSignatureAspectRatio] =
     useAppStore(

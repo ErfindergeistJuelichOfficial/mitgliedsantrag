@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { BLANK_PNG } from "../const";
-import { AllowedSignatureKeys } from "../models/AllowedSignatureKeys";
-import { SignatureItem } from "../models/SignatureItem";
+import type { AllowedSignatureKeys } from "../models/AllowedSignatureKeys";
+import type { SignatureItem } from "../models/SignatureItem";
 
 export function getInitialSignatureItems(
   allowedSignatureKeys: AllowedSignatureKeys[]

@@ -12,7 +12,7 @@ import {
 import { useAppStore } from "../../stores/appStore";
 import { useShallow } from "zustand/shallow";
 import ContributeIndividuallyBlock from "./ContributeIndividuallyBlock";
-import { ContributeProps } from "./ContributeProps";
+import type { ContributeProps } from "./ContributeProps";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",

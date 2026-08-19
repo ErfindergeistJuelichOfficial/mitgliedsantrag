@@ -1,7 +1,7 @@
-import { AllowedFormKeys } from "./AllowedFormKeys";
-import { AllowedSignatureKeys } from "./AllowedSignatureKeys";
-import { FormItem } from "./FormItem";
-import { SignatureItem } from "./SignatureItem";
+import type { AllowedFormKeys } from "./AllowedFormKeys";
+import type { AllowedSignatureKeys } from "./AllowedSignatureKeys";
+import type { FormItem } from "./FormItem";
+import type { SignatureItem } from "./SignatureItem";
 
 export interface AppState {
   // Contribute FORM
